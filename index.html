@@ -14,91 +14,73 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     :root{
-      --bg-base:#f8f9fa;--bg-surface:#ffffff;--bg-muted:#f1f3f5;
-      --text-primary:#0f172a;--text-secondary:#475569;--text-muted:#94a3b8;
-      --accent:#f97316;--accent-dk:#ea580c;--accent-lt:#fff7ed;
-      --blue:#2563eb;--blue-dk:#1d4ed8;--blue-lt:#eff6ff;
-      --border:rgba(0,0,0,0.08);
-      --success:#16a34a;--error:#dc2626;
-      --shadow-sm:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
-      --shadow-md:0 4px 6px rgba(0,0,0,0.05),0 10px 24px rgba(0,0,0,0.06);
-      --r-sm:6px;--r-md:10px;--r-lg:14px;--r-xl:20px;
+      --primary:#8B2332;--primary-dk:#6B1A27;--primary-lt:#F9F0F1;
+      --gold:#C6993E;--gold-dk:#A67D2E;--gold-lt:#FDF8EE;
+      --bg:#FAFAF8;--surface:#FFFFFF;--muted:#F5F3F0;
+      --text:#1C1917;--text2:#57534E;--text3:#A8A29E;
+      --border:rgba(0,0,0,0.06);
+      --shadow-sm:0 1px 3px rgba(0,0,0,0.05),0 4px 12px rgba(0,0,0,0.03);
+      --shadow-md:0 4px 6px rgba(0,0,0,0.04),0 10px 24px rgba(0,0,0,0.06);
+      --r-sm:6px;--r-md:10px;--r-lg:14px;
     }
     html{scroll-behavior:smooth}
-    body{font-family:'Inter','Noto Sans JP',-apple-system,sans-serif;background:var(--bg-base);color:var(--text-primary);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body{font-family:'Inter','Noto Sans JP',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     .wrap{max-width:440px;margin:0 auto}
 
-    /* ===== HERO ===== */
-    .hero{position:relative;height:280px;overflow:hidden}
+    /* HERO */
+    .hero{position:relative;height:300px;overflow:hidden}
     .hero-img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(transparent 20%,rgba(15,23,42,.75));display:flex;flex-direction:column;justify-content:flex-end;padding:24px 20px;color:#fff;text-align:center}
-    .hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:3px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1.5px;margin:0 auto 8px}
-    .hero-uni{font-size:13px;font-weight:500;opacity:.85}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(transparent 15%,rgba(107,26,39,.88));display:flex;flex-direction:column;justify-content:flex-end;padding:28px 20px;color:#fff;text-align:center}
+    .hero-badge{display:inline-block;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:4px 16px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1.5px;margin:0 auto 10px;border:1px solid rgba(255,255,255,.15)}
+    .hero-uni{font-size:13px;font-weight:500;opacity:.8}
     .hero-title{font-size:22px;font-weight:900;letter-spacing:2px}
-    .hero-name{font-size:40px;font-weight:900;letter-spacing:8px;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+    .hero-name{font-size:44px;font-weight:900;letter-spacing:10px;text-shadow:0 2px 16px rgba(0,0,0,.25)}
 
-    /* ===== PHOTO GALLERY ===== */
-    .gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;padding:3px}
-    .gallery img{width:100%;height:100px;object-fit:cover;display:block;border-radius:2px}
-    .gallery img:first-child{grid-column:span 2;height:120px}
+    /* GALLERY */
+    .gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
+    .gallery img{width:100%;height:90px;object-fit:cover;display:block}
+    .gallery img:first-child{grid-column:span 2;height:110px}
+    @media(min-width:480px){.gallery img{height:110px}.gallery img:first-child{height:140px}}
 
-    /* ===== NAV ===== */
+    /* TAGLINE */
+    .tagline{background:var(--primary);color:#fff;text-align:center;padding:14px 16px;font-size:18px;font-weight:900;letter-spacing:3px}
+
+    /* NAV */
     .nav{display:flex;gap:8px;padding:16px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
     .nav::-webkit-scrollbar{display:none}
-    .nav a{flex-shrink:0;padding:10px 16px;border-radius:var(--r-md);font-size:13px;font-weight:600;text-decoration:none;color:var(--blue);background:var(--blue-lt);white-space:nowrap;transition:all .15s;min-height:44px;display:flex;align-items:center}
-    .nav a:active{background:var(--blue);color:#fff}
+    .nav a{flex-shrink:0;padding:10px 16px;border-radius:var(--r-md);font-size:13px;font-weight:600;text-decoration:none;color:var(--primary);background:var(--primary-lt);white-space:nowrap;transition:all .15s;min-height:44px;display:flex;align-items:center}
+    .nav a:active{background:var(--primary);color:#fff}
 
-    /* ===== STATS ===== */
+    /* STATS */
     .stats{display:flex;gap:8px;padding:0 16px 20px}
-    .stat{flex:1;background:var(--bg-surface);border-radius:var(--r-lg);padding:14px 8px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
-    .stat-num{font-size:24px;font-weight:700;color:var(--blue);line-height:1.2}
+    .stat{flex:1;background:var(--surface);border-radius:var(--r-lg);padding:14px 8px;text-align:center;box-shadow:var(--shadow-sm);border:1px solid var(--border)}
+    .stat-num{font-size:24px;font-weight:700;color:var(--primary);line-height:1.2}
     .stat-num span{font-size:13px;font-weight:600}
-    .stat-lbl{font-size:11px;color:var(--text-muted);font-weight:500;margin-top:2px}
+    .stat-lbl{font-size:11px;color:var(--text3);font-weight:500;margin-top:2px}
 
-    /* ===== SECTIONS ===== */
+    /* SECTIONS */
     .sec{padding:0 16px;margin-bottom:20px}
     .sec-head{font-size:18px;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;letter-spacing:-.01em}
     .sec-icon{width:32px;height:32px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-    .card{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 16px;box-shadow:var(--shadow-sm)}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 16px;box-shadow:var(--shadow-sm)}
 
-    /* ===== ABOUT ===== */
-    .about p{font-size:14px;color:var(--text-secondary);line-height:1.9}
-    .about strong{color:var(--blue);font-weight:600}
-    .gauge{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 16px;background:var(--bg-muted);border-radius:var(--r-md)}
-    .gauge-lbl{font-size:12px;font-weight:600;color:var(--text-secondary);white-space:nowrap}
+    /* ABOUT */
+    .about p{font-size:14px;color:var(--text2);line-height:1.9}
+    .about strong{color:var(--primary);font-weight:600}
+    .gauge{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 16px;background:var(--muted);border-radius:var(--r-md)}
+    .gauge-lbl{font-size:12px;font-weight:600;color:var(--text2);white-space:nowrap}
     .gauge-track{flex:1}
-    .gauge-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
-    .gauge-fill{height:100%;width:60%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--accent))}
-    .gauge-ends{display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-top:4px;font-weight:500}
+    .gauge-bar{height:6px;background:#e7e5e4;border-radius:3px;overflow:hidden}
+    .gauge-fill{height:100%;width:60%;border-radius:3px;background:linear-gradient(90deg,var(--primary),var(--gold))}
+    .gauge-ends{display:flex;justify-content:space-between;font-size:10px;color:var(--text3);margin-top:4px;font-weight:500}
 
-    /* ===== PRACTICE CARDS ===== */
-    .prac-header{text-align:center;margin-bottom:20px}
-    .prac-header h2{font-size:20px;font-weight:900;letter-spacing:-.02em}
-    .prac-header p{font-size:13px;color:var(--text-muted);font-weight:500;margin-top:4px}
-    .prac-list{display:flex;flex-direction:column;gap:12px}
-    .prac-card{background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden;transition:all .2s}
-    .prac-card.next{border-color:var(--accent);border-width:2px}
-    .prac-top{display:flex;align-items:stretch}
-    .prac-date{background:var(--blue);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:68px;padding:12px 8px}
-    .prac-date .month{font-size:11px;font-weight:500;opacity:.8}
-    .prac-date .day{font-size:30px;font-weight:700;line-height:1}
-    .prac-date .dow{font-size:11px;font-weight:600;margin-top:4px;background:rgba(255,255,255,.2);padding:1px 10px;border-radius:8px}
-    .prac-body{flex:1;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:3px}
-    .prac-venue{font-size:14px;font-weight:600;color:var(--text-primary)}
-    .prac-time{font-size:13px;color:var(--blue);font-weight:600}
-    .prac-note{font-size:11px;color:var(--text-muted);font-weight:500}
-    .prac-badge{display:inline-block;background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--r-sm);margin-left:8px;vertical-align:middle;letter-spacing:.5px}
-    .prac-cta{display:block;text-align:center;padding:12px 16px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;text-decoration:none;transition:filter .15s,transform .1s;min-height:48px;display:flex;align-items:center;justify-content:center;gap:6px}
-    .prac-cta:active{filter:brightness(.92);transform:scale(.98)}
-    .prac-cta svg{width:16px;height:16px}
-
-    /* ===== YEAR SCHEDULE ===== */
+    /* YEAR SCHEDULE */
     .yr-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-    .yr-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r-sm);background:var(--bg-muted)}
-    .yr-m{background:var(--blue);color:#fff;font-weight:700;font-size:10px;padding:3px 8px;border-radius:4px;min-width:34px;text-align:center;flex-shrink:0}
-    .yr-ev{font-size:11px;line-height:1.4;color:var(--text-secondary);font-weight:500}
+    .yr-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:var(--r-sm);background:var(--muted)}
+    .yr-m{background:var(--primary);color:#fff;font-weight:700;font-size:10px;padding:3px 8px;border-radius:4px;min-width:34px;text-align:center;flex-shrink:0}
+    .yr-ev{font-size:11px;line-height:1.4;color:var(--text2);font-weight:500}
 
-    /* ===== SNS ===== */
+    /* SNS */
     .sns-grid{display:flex;flex-direction:column;gap:10px}
     .sns-btn{display:flex;align-items:center;gap:14px;padding:14px 18px;border-radius:var(--r-lg);text-decoration:none;color:#fff;font-weight:600;box-shadow:var(--shadow-sm);transition:transform .12s,filter .15s;min-height:56px}
     .sns-btn:active{transform:scale(.97);filter:brightness(.92)}
@@ -112,42 +94,57 @@
     .bg-ig{background:#E1306C}
     .bg-ig2{background:#833AB4}
 
-    /* ===== FLYER LINK ===== */
-    .flyer-link{display:flex;align-items:center;gap:12px;margin:0 16px 20px;padding:14px 18px;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--r-lg);text-decoration:none;color:var(--text-primary);box-shadow:var(--shadow-sm);transition:all .15s;min-height:56px}
+    /* PRACTICE */
+    .prac-header{text-align:center;margin-bottom:20px}
+    .prac-header h2{font-size:20px;font-weight:900;letter-spacing:-.02em}
+    .prac-header p{font-size:13px;color:var(--text3);font-weight:500;margin-top:4px}
+    .prac-list{display:flex;flex-direction:column;gap:12px}
+    .prac-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden}
+    .prac-card.next{border-color:var(--gold);border-width:2px}
+    .prac-top{display:flex;align-items:stretch}
+    .prac-date{background:var(--primary);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:68px;padding:12px 8px}
+    .prac-date .month{font-size:11px;font-weight:500;opacity:.8}
+    .prac-date .day{font-size:30px;font-weight:700;line-height:1}
+    .prac-date .dow{font-size:11px;font-weight:600;margin-top:4px;background:rgba(255,255,255,.18);padding:1px 10px;border-radius:8px}
+    .prac-body{flex:1;padding:14px 16px;display:flex;flex-direction:column;justify-content:center;gap:3px}
+    .prac-venue{font-size:14px;font-weight:600;color:var(--text)}
+    .prac-time{font-size:13px;color:var(--primary);font-weight:600}
+    .prac-note{font-size:11px;color:var(--text3);font-weight:500}
+    .prac-badge{display:inline-block;background:var(--gold);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:var(--r-sm);margin-left:8px;vertical-align:middle;letter-spacing:.5px}
+    .prac-cta{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;padding:12px 16px;background:var(--gold);color:#fff;font-size:14px;font-weight:600;text-decoration:none;transition:filter .15s,transform .1s;min-height:48px}
+    .prac-cta:active{filter:brightness(.88);transform:scale(.98)}
+
+    /* FLYER LINK */
+    .flyer-link{display:flex;align-items:center;gap:12px;margin:0 16px 20px;padding:14px 18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);text-decoration:none;color:var(--text);box-shadow:var(--shadow-sm);transition:all .15s;min-height:56px}
     .flyer-link:active{box-shadow:var(--shadow-md);transform:translateY(-1px)}
-    .flyer-link-icon{width:40px;height:40px;background:var(--blue-lt);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+    .flyer-link-icon{width:40px;height:40px;background:var(--primary-lt);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
     .flyer-link-text{flex:1}
     .flyer-link-title{font-size:14px;font-weight:600}
-    .flyer-link-sub{font-size:11px;color:var(--text-muted);font-weight:500}
-    .flyer-link-arr{font-size:18px;color:var(--text-muted)}
+    .flyer-link-sub{font-size:11px;color:var(--text3);font-weight:500}
+    .flyer-link-arr{font-size:18px;color:var(--text3)}
 
-    /* ===== CTA ===== */
-    .cta{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#1e3a5f,#2563eb);color:#fff}
+    /* CTA */
+    .cta{text-align:center;padding:40px 20px;background:linear-gradient(135deg,var(--primary-dk),var(--primary));color:#fff}
     .cta-text{font-size:22px;font-weight:900;letter-spacing:3px}
     .cta-sub{font-size:13px;opacity:.7;margin-top:8px;font-weight:400}
-    .cta-btn{display:inline-block;margin-top:20px;padding:14px 32px;border-radius:var(--r-md);background:var(--accent);color:#fff;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(249,115,22,.3);transition:filter .15s,transform .1s;min-height:48px}
-    .cta-btn:active{filter:brightness(.92);transform:scale(.97)}
+    .cta-btn{display:inline-block;margin-top:20px;padding:14px 32px;border-radius:var(--r-md);background:var(--gold);color:#fff;font-size:15px;font-weight:600;text-decoration:none;box-shadow:0 4px 16px rgba(198,153,62,.3);transition:filter .15s,transform .1s;min-height:48px}
+    .cta-btn:active{filter:brightness(.88);transform:scale(.97)}
 
-    .footer{text-align:center;padding:16px;font-size:11px;color:var(--text-muted);font-weight:400}
+    .footer{text-align:center;padding:16px;font-size:11px;color:var(--text3);font-weight:400}
 
-    /* ===== ANIMATIONS ===== */
+    /* ANIMATIONS */
     .fade-in{opacity:0;transform:translateY(12px);transition:opacity .4s cubic-bezier(.16,1,.3,1),transform .4s cubic-bezier(.16,1,.3,1)}
     .fade-in.visible{opacity:1;transform:translateY(0)}
+    a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:var(--r-sm)}
 
-    a:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm)}
-
-    @media(min-width:480px){
-      .hero{height:340px}
-      .gallery img{height:130px}
-      .gallery img:first-child{height:150px}
-    }
+    @media(min-width:480px){.hero{height:360px}}
   </style>
 </head>
 <body>
 
 <!-- HERO -->
 <header class="hero">
-  <img class="hero-img" src="img/hero.jpg" alt="WUBLS 活動風景" width="2500" height="870" loading="eager">
+  <img class="hero-img" src="img/g2.jpg" alt="WUBLS 集合写真" width="804" height="404" loading="eager">
   <div class="hero-overlay">
     <div class="hero-badge">EST. 1965 — 創立61年</div>
     <p class="hero-uni">早稲田大学</p>
@@ -156,23 +153,26 @@
   </div>
 </header>
 
-<!-- PHOTO GALLERY -->
+<!-- GALLERY -->
 <div class="gallery">
-  <img src="img/photo2.jpg" alt="WUBLS 集合写真" loading="lazy">
-  <img src="img/photo8.jpg" alt="バドミントン練習風景" loading="lazy">
-  <img src="img/photo5.jpg" alt="早稲田祭 出店" loading="lazy">
-  <img src="img/photo4.jpg" alt="BBQイベント" loading="lazy">
-  <img src="img/photo9.jpg" alt="Go for it!" loading="lazy">
+  <img src="img/g7.jpg" alt="バドミントン練習" loading="lazy">
+  <img src="img/g3.jpg" alt="盛り上がり" loading="lazy">
+  <img src="img/g5.jpg" alt="早稲田祭" loading="lazy">
+  <img src="img/g4.jpg" alt="BBQ" loading="lazy">
+  <img src="img/g6.jpg" alt="練習交流" loading="lazy">
 </div>
+
+<!-- TAGLINE BANNER -->
+<div class="tagline">WUBLSで最高の四年間を!!!!!</div>
 
 <div class="wrap">
 
 <!-- NAV -->
 <nav class="nav" role="navigation" aria-label="ページ内ナビゲーション">
-  <a href="#practice">新歓練習に参加</a>
   <a href="#about">WUBLSとは</a>
   <a href="#schedule">年間予定</a>
   <a href="#sns">SNS</a>
+  <a href="#practice">新歓練習予約</a>
 </nav>
 
 <!-- STATS -->
@@ -182,136 +182,11 @@
   <div class="stat fade-in"><div class="stat-num">週<span>2</span>日</div><div class="stat-lbl">活動日</div></div>
 </div>
 
-<!-- PRACTICE -->
-<section class="sec" id="practice">
-  <div class="prac-header">
-    <h2>4月の新歓練習</h2>
-    <p>日程を選んで参加予約しよう</p>
-  </div>
-  <div class="prac-list">
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">6</span><span class="dow">月</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">亀戸スポーツセンター</div>
-          <div class="prac-time">18:00 〜 21:30</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1MQ1o3xrkWobs9tWdv3a8UjyeK7l0kRIx9mQLhWvjgbQ/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">9</span><span class="dow">木</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">和光市総合体育館</div>
-          <div class="prac-time">18:00 〜 21:00</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1-dgYgkg0bKjHAzD-91iU5rV9V-Eg7yULIAGT8qJ-2Ds/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">14</span><span class="dow">火</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">亀戸スポーツセンター</div>
-          <div class="prac-time">13:00 〜 17:00</div>
-          <div class="prac-note">2部制</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1gedypUkWkNcO-HD81OkFP_cWqAVdVU1WHvrKAxEFLlE/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">16</span><span class="dow">木</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">深川スポーツセンター</div>
-          <div class="prac-time">13:00 〜 17:00</div>
-          <div class="prac-note">2部制</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1TrlGWMcHa2zNArw5Stdbimkhds2gzufEUczhtsP73h0/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">20</span><span class="dow">月</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">和光市総合体育館</div>
-          <div class="prac-time">12:00 〜 15:00</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1hTU4fpZu_hhiv98teKzf_tz-v6oV84c1qCbz3zWGu0M/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">22</span><span class="dow">水</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">有明スポーツセンター</div>
-          <div class="prac-time">18:00 〜 21:00</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1WY9WpyVFDhhaPwTokkDvAXEgJCiW_BHpGEdBB8gWTWg/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">27</span><span class="dow">月</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">和光市総合体育館</div>
-          <div class="prac-time">12:00 〜 15:00</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/1dbIg7rjsKSzIh1ZF4QTVzMMoRryymCLeFaGqQIbeR2k/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-    <div class="prac-card fade-in">
-      <div class="prac-top">
-        <div class="prac-date"><span class="month">4月</span><span class="day">30</span><span class="dow">木</span></div>
-        <div class="prac-body">
-          <div class="prac-venue">和光市総合体育館</div>
-          <div class="prac-time">18:00 〜 21:00</div>
-        </div>
-      </div>
-      <a class="prac-cta" href="https://docs.google.com/forms/d/11rDotyLR-mGpWUD2DHHpzRI6StsakOQfRb8-9rezOh0/viewform" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg>
-        予約する
-      </a>
-    </div>
-
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section class="sec" id="about">
   <div class="card about fade-in">
     <div class="sec-head">
-      <div class="sec-icon" style="background:var(--blue-lt);color:var(--blue)">🏸</div>
+      <div class="sec-icon" style="background:var(--primary-lt);color:var(--primary)">🏸</div>
       WUBLSについて
     </div>
     <p>
@@ -334,7 +209,7 @@
 <section class="sec" id="schedule">
   <div class="card fade-in">
     <div class="sec-head">
-      <div class="sec-icon" style="background:var(--accent-lt);color:var(--accent)">📅</div>
+      <div class="sec-icon" style="background:var(--gold-lt);color:var(--gold)">📅</div>
       年間スケジュール
     </div>
     <div class="yr-grid">
@@ -357,7 +232,7 @@
 <!-- SNS -->
 <section class="sec" id="sns">
   <div class="sec-head" style="justify-content:center">SNSをフォローしよう</div>
-  <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:16px;font-weight:500">最新情報・練習予定をチェック</p>
+  <p style="text-align:center;font-size:13px;color:var(--text3);margin-bottom:16px;font-weight:500">最新情報・練習予定をチェック</p>
   <div class="sns-grid">
     <a class="sns-btn bg-line fade-in" href="https://line.me/ti/g/jnYEWdJd_r" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="#fff"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596a.626.626 0 01-.199.031c-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
@@ -382,6 +257,24 @@
   </div>
 </section>
 
+<!-- PRACTICE (SNSの下) -->
+<section class="sec" id="practice">
+  <div class="prac-header">
+    <h2>4月の新歓練習</h2>
+    <p>日程を選んで参加予約しよう</p>
+  </div>
+  <div class="prac-list">
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">6</span><span class="dow">月</span></div><div class="prac-body"><div class="prac-venue">亀戸スポーツセンター</div><div class="prac-time">18:00 〜 21:30</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1MQ1o3xrkWobs9tWdv3a8UjyeK7l0kRIx9mQLhWvjgbQ/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">9</span><span class="dow">木</span></div><div class="prac-body"><div class="prac-venue">和光市総合体育館</div><div class="prac-time">18:00 〜 21:00</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1-dgYgkg0bKjHAzD-91iU5rV9V-Eg7yULIAGT8qJ-2Ds/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">14</span><span class="dow">火</span></div><div class="prac-body"><div class="prac-venue">亀戸スポーツセンター</div><div class="prac-time">13:00 〜 17:00</div><div class="prac-note">2部制</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1gedypUkWkNcO-HD81OkFP_cWqAVdVU1WHvrKAxEFLlE/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">16</span><span class="dow">木</span></div><div class="prac-body"><div class="prac-venue">深川スポーツセンター</div><div class="prac-time">13:00 〜 17:00</div><div class="prac-note">2部制</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1TrlGWMcHa2zNArw5Stdbimkhds2gzufEUczhtsP73h0/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">20</span><span class="dow">月</span></div><div class="prac-body"><div class="prac-venue">和光市総合体育館</div><div class="prac-time">12:00 〜 15:00</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1hTU4fpZu_hhiv98teKzf_tz-v6oV84c1qCbz3zWGu0M/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">22</span><span class="dow">水</span></div><div class="prac-body"><div class="prac-venue">有明スポーツセンター</div><div class="prac-time">18:00 〜 21:00</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1WY9WpyVFDhhaPwTokkDvAXEgJCiW_BHpGEdBB8gWTWg/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">27</span><span class="dow">月</span></div><div class="prac-body"><div class="prac-venue">和光市総合体育館</div><div class="prac-time">12:00 〜 15:00</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/1dbIg7rjsKSzIh1ZF4QTVzMMoRryymCLeFaGqQIbeR2k/viewform" target="_blank" rel="noopener">予約する →</a></div>
+    <div class="prac-card fade-in"><div class="prac-top"><div class="prac-date"><span class="month">4月</span><span class="day">30</span><span class="dow">木</span></div><div class="prac-body"><div class="prac-venue">和光市総合体育館</div><div class="prac-time">18:00 〜 21:00</div></div></div><a class="prac-cta" href="https://docs.google.com/forms/d/11rDotyLR-mGpWUD2DHHpzRI6StsakOQfRb8-9rezOh0/viewform" target="_blank" rel="noopener">予約する →</a></div>
+  </div>
+</section>
+
 <!-- FLYER LINK -->
 <a class="flyer-link fade-in" href="https://drive.google.com/file/d/1lpMwUHNOw-b7xX8Uam7uHKGifpw2DNHm/view" target="_blank" rel="noopener">
   <div class="flyer-link-icon">📄</div>
@@ -392,26 +285,24 @@
   <span class="flyer-link-arr">›</span>
 </a>
 
-</div><!-- /wrap -->
+</div>
 
 <!-- CTA -->
 <div class="cta">
-  <p class="cta-text">WUBLSで最高の四年間を！</p>
-  <p class="cta-sub">興味ある方はSNSからお気軽にDMください</p>
+  <p class="cta-text">WUBLSで最高の四年間を!!!!!</p>
+  <p class="cta-sub">経験・学年・国籍問わず誰でも大歓迎！<br>興味ある方はSNSからお気軽にDMください</p>
   <a class="cta-btn" href="#practice">新歓練習に参加する</a>
 </div>
 
 <div class="footer">© 2026 WUBLS - 早稲田大学バドミントン同好会</div>
 
 <script>
-// Scroll fade-in
 (function(){
   var els=document.querySelectorAll('.fade-in');
   if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('visible')});return}
   var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(e){io.observe(e)});
 })();
-// Mark next practice
 (function(){
   var now=new Date(),cards=document.querySelectorAll('.prac-card'),found=false;
   cards.forEach(function(card){if(found)return;var day=parseInt(card.querySelector('.day').textContent);var d=new Date(2026,3,day);if(d>=now){card.classList.add('next');var v=card.querySelector('.prac-venue');v.innerHTML+='<span class="prac-badge">NEXT</span>';found=true}});
