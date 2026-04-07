@@ -4,26 +4,19 @@
 
 ## 公開URL
 
-http://160.251.232.198.nip.io/
+https://wubls-badminton.github.io/wubls-page/
 
 ## ホスティング
 
-AsinstarのVPS（160.251.232.198）のnginxバーチャルホスト。
-Netlifyはアカウントクレジット超過のため2026-04-06から使用不可。
-
-### nginx設定（VPS上）
-- ファイル: `/etc/nginx/conf.d/wubls.conf`
-- ポート: 80（バーチャルホスト）
-- server_name: `160.251.232.198.nip.io`
-- root: `/var/www/wubls`
-
-他ツール（asinstar・sedori-keihi）とはserver_nameで完全分離。
+GitHub Pages（wubls-badminton org・masterブランチ）。
+- リポジトリ: https://github.com/wubls-badminton/wubls-page
+- 旧URL: http://160.251.232.198.nip.io/（VPS・2026-04-07移行）
 
 ## 構成
 
 - `index.html` — 単一HTMLファイル（全機能）
 - `img/g*.jpg` — 切り出し画像
-- `qrcode.png` — えんじ色QRコード（http://160.251.232.198.nip.io/ 対応）
+- `qrcode.png` — えんじ色QRコード（https://wubls-badminton.github.io/wubls-page/ 対応）
 
 ## 機能
 
@@ -34,10 +27,9 @@ Netlifyはアカウントクレジット超過のため2026-04-06から使用不
 
 ## デプロイ方法
 
-```python
-# paramiko SSHスクリプトで自動デプロイ
-# C:\tmp\fix_wubls_nip.py を参照
-python C:/tmp/fix_wubls_nip.py
+```bash
+# masterブランチにpushするだけで自動デプロイ
+git push origin master
 ```
 
 ## カラー
